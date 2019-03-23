@@ -597,6 +597,7 @@ namespace AnyDataType
 		}
 
 		#endregion
+
 		public override string ToString()
 		{
 			return _value.ToString();
