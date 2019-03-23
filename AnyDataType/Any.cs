@@ -334,6 +334,7 @@ namespace AnyDataType
 				{
 					if (double.TryParse(valB, out double dbl)) return dbl + a;
 				}
+				return a._value.ToString() + b._value.ToString();
 			}
 			if (a._value is decimal || b._value is decimal)
 			{

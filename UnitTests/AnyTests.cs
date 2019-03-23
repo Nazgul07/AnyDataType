@@ -862,6 +862,16 @@ namespace AnyTests
 				Any test = 4;
 				Assert.AreEqual(9,  "5" + test);
 			}
+
+			[Test]
+			public void StringConcatenation()
+			{
+				Any test = 4;
+				Assert.AreEqual("test4", "test" + test);
+				test = "test";
+				Any other = "other";
+				Assert.AreEqual("testother", test + other);
+			}
 		}
 
 		public class Subtraction
