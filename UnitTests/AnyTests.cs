@@ -473,7 +473,7 @@ namespace AnyTests
 			}
 		}
 
-		public class AnyIntMath
+		public class AnyIntMultiplication
 		{
 			[Test]
 			public void MultiplicationInt()
@@ -562,6 +562,269 @@ namespace AnyTests
 			public void MultiplicatioAnyStringAnyString()
 			{
 				Any test = "4";
+				Any other = "2.5";
+				Assert.AreEqual(10, test * other);
+			}
+		}
+
+		public class AnyLongMultiplication
+		{
+			[Test]
+			public void MultiplicationInt()
+			{
+				Any test = 5L;
+				Assert.AreEqual(20, test * 4);
+			}
+
+			[Test]
+			public void MultiplicationLong()
+			{
+				Any test = 5L;
+				Assert.AreEqual(20, test * 4L);
+			}
+
+			[Test]
+			public void MultiplicationDouble()
+			{
+				Any test = 4L;
+				Assert.AreEqual(10, test * 2.5);
+			}
+
+			[Test]
+			public void MultiplicationFloat()
+			{
+				Any test = 4L;
+				Assert.AreEqual(10, test * 2.5f);
+			}
+
+			[Test]
+			public void MultiplicationDecimal()
+			{
+				Any test = 4L;
+				Assert.AreEqual(10, test * 2.5m);
+			}
+
+			[Test]
+			public void MultiplicationAnyInt()
+			{
+				Any test = 5L;
+				Any other = 4L;
+				Assert.AreEqual(20, test * other);
+			}
+
+			[Test]
+			public void MultiplicationAnyLong()
+			{
+				Any test = 5L;
+				Any other = 4L;
+				Assert.AreEqual(20, test * other);
+			}
+
+			[Test]
+			public void MultiplicationAnyDouble()
+			{
+				Any test = 4L;
+				Any other = 2.5;
+				Assert.AreEqual(10.0, test * other);
+			}
+
+			[Test]
+			public void MultiplicationAnyFloat()
+			{
+				Any test = 4L;
+				Any other = 2.5f;
+				Assert.AreEqual(10, test * other);
+			}
+
+			[Test]
+			public void MultiplicatioAnyDecimal()
+			{
+				Any test = 4L;
+				Any other = 2.5m;
+				Assert.AreEqual(10, test * other);
+			}
+
+			[Test]
+			public void MultiplicatioAnyString()
+			{
+				Any test = 4L;
+				Any other = "2.5";
+				Assert.AreEqual(10, test * other);
+			}
+		}
+
+		public class AnyFloatMultiplication
+		{
+			[Test]
+			public void MultiplicationInt()
+			{
+				Any test = 5.5f;
+				Assert.AreEqual(22, test * 4);
+			}
+
+			[Test]
+			public void MultiplicationLong()
+			{
+				Any test = 5.5f;
+				Assert.AreEqual(22, test * 4L);
+			}
+
+			[Test]
+			public void MultiplicationDouble()
+			{
+				Any test = 4f;
+				Assert.AreEqual(10, test * 2.5);
+			}
+
+			[Test]
+			public void MultiplicationFloat()
+			{
+				Any test = 4f;
+				Assert.AreEqual(10, test * 2.5f);
+			}
+
+			[Test]
+			public void MultiplicationDecimal()
+			{
+				Any test = 4f;
+				Assert.AreEqual(10, test * 2.5m);
+			}
+
+			[Test]
+			public void MultiplicationAnyInt()
+			{
+				Any test = 5f;
+				Any other = 4f;
+				Assert.AreEqual(20, test * other);
+			}
+
+			[Test]
+			public void MultiplicationAnyLong()
+			{
+				Any test = 5f;
+				Any other = 4f;
+				Assert.AreEqual(20, test * other);
+			}
+
+			[Test]
+			public void MultiplicationAnyDouble()
+			{
+				Any test = 4f;
+				Any other = 2.5;
+				Assert.AreEqual(10.0, test * other);
+			}
+
+			[Test]
+			public void MultiplicationAnyFloat()
+			{
+				Any test = 4f;
+				Any other = 2.5f;
+				Assert.AreEqual(10, test * other);
+			}
+
+			[Test]
+			public void MultiplicatioAnyDecimal()
+			{
+				Any test = 4f;
+				Any other = 2.5m;
+				Assert.AreEqual(10, test * other);
+			}
+
+			[Test]
+			public void MultiplicatioAnyString()
+			{
+				Any test = 4f;
+				Any other = "2.5";
+				Assert.AreEqual(10, test * other);
+			}
+		}
+
+		public class AnyDoubleMultilpiccation
+		{
+
+		}
+
+		public class AnyDecimalMultiplication
+		{
+			[Test]
+			public void MultiplicationInt()
+			{
+				Any test = 5f;
+				Assert.AreEqual(20, test * 4);
+			}
+
+			[Test]
+			public void MultiplicationLong()
+			{
+				Any test = 5f;
+				Assert.AreEqual(20, test * 4L);
+			}
+
+			[Test]
+			public void MultiplicationDouble()
+			{
+				Any test = 4m;
+				Assert.AreEqual(10, test * 2.5);
+			}
+
+			[Test]
+			public void MultiplicationFloat()
+			{
+				Any test = 4m;
+				Assert.AreEqual(10, test * 2.5f);
+			}
+
+			[Test]
+			public void MultiplicationDecimal()
+			{
+				Any test = 4m;
+				Assert.AreEqual(10, test * 2.5m);
+			}
+
+			[Test]
+			public void MultiplicationAnyInt()
+			{
+				Any test = 5m;
+				Any other = 4m;
+				Assert.AreEqual(20, test * other);
+			}
+
+			[Test]
+			public void MultiplicationAnyLong()
+			{
+				Any test = 5m;
+				Any other = 4m;
+				Assert.AreEqual(20, test * other);
+			}
+
+			[Test]
+			public void MultiplicationAnyDouble()
+			{
+				Any test = 4m;
+				Any other = 2.5;
+				Assert.AreEqual(10.0, test * other);
+			}
+
+			[Test]
+			public void MultiplicationAnyFloat()
+			{
+				Any test = 4m;
+				Any other = 2.5f;
+				Assert.AreEqual(10, test * other);
+			}
+
+			[Test]
+			public void MultiplicatioAnyDecimal()
+			{
+				Any test = 4m;
+				Any other = 2.5m;
+				Assert.AreEqual(10, test * other);
+			}
+
+			[Test]
+			public void MultiplicatioAnyString()
+			{
+				Any test = 4m;
 				Any other = "2.5";
 				Assert.AreEqual(10, test * other);
 			}

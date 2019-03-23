@@ -161,66 +161,22 @@ namespace AnyDataType
 
 		#region Math
 
-		public static int operator *(Any a, int b)
-		{
-			if (a._value is int intVal) return intVal * b;
-			if (a._value is long longVal) return (int)longVal * b;
-			if (a._value is double doubleVal) return (int)doubleVal * b;
-			if (a._value is float floatVal) return (int)floatVal * b;
-			if (a._value is decimal decimalVal) return (int)decimalVal * b;
-			throw new OverflowException();
-		}
-
-		public static int operator *(int a, Any b)
-		{
-			return b * a;
-		}
-
-		public static long operator *(Any a, long b)
-		{
-			if (a._value is int intVal) return intVal * b;
-			if (a._value is long longVal) return longVal * b;
-			if (a._value is double doubleVal) return (long)doubleVal * b;
-			if (a._value is float floatVal) return (long)floatVal * b;
-			if (a._value is decimal decimalVal) return (long)decimalVal * b;
-			throw new OverflowException();
-		}
-
-		public static long operator *(long a, Any b)
-		{
-			return b * a;
-		}
-
 		public static double operator *(Any a, double b)
 		{
 			if (a._value is string valA)
 			{
 				if (double.TryParse(valA, out double dbl)) return dbl * b;
 			}
-			if (a._value is int intVal) return intVal * b;
-			if (a._value is long longVal) return longVal * b;
-			if (a._value is double doubleVal) return doubleVal * b;
-			if (a._value is float floatVal) return floatVal * b;
+
 			if (a._value is decimal decimalVal) return (double)decimalVal * b;
+			if (a._value is float floatVal) return floatVal * b;
+			if (a._value is double doubleVal) return doubleVal * b;
+			if (a._value is long longVal) return longVal * b;
+			if (a._value is int intVal) return intVal * b;
 			throw new OverflowException();
 		}
 
 		public static double operator *(double a, Any b)
-		{
-			return b * a;
-		}
-
-		public static decimal operator *(Any a, decimal b)
-		{
-			if (a._value is int intVal) return intVal * b;
-			if (a._value is long longVal) return longVal * b;
-			if (a._value is double doubleVal) return (decimal)doubleVal * b;
-			if (a._value is float floatVal) return (decimal)floatVal * b;
-			if (a._value is decimal decimalVal) return (decimal)decimalVal * b;
-			throw new OverflowException();
-		}
-
-		public static decimal operator *(decimal a, Any b)
 		{
 			return b * a;
 		}
