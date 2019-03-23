@@ -860,7 +860,7 @@ namespace AnyTests
 			public void AdditionString()
 			{
 				Any test = 4;
-				Assert.AreEqual(9,  "5" + test);
+				Assert.AreEqual(9, "5" + test);
 			}
 
 			[Test]
@@ -936,7 +936,7 @@ namespace AnyTests
 				Any test = 16;
 				Any divisor = "4";
 				Assert.AreEqual(4, test / "4");
-				Assert.AreEqual(4, 16/divisor);
+				Assert.AreEqual(4, 16 / divisor);
 			}
 		}
 	}

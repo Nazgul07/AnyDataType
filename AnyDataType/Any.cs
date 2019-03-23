@@ -108,9 +108,9 @@ namespace AnyDataType
 
 		private bool AreEqual(object left, object right)
 		{
-			if(IsNumber(left) && IsNumber(right))
+			if (IsNumber(left) && IsNumber(right))
 			{
-				return ((IConvertible)left).ToDouble(null) == ((IConvertible)right).ToDouble(null); 
+				return ((IConvertible)left).ToDouble(null) == ((IConvertible)right).ToDouble(null);
 			}
 			switch (left)
 			{
@@ -223,9 +223,9 @@ namespace AnyDataType
 
 		public static Any operator *(Any a, Any b)
 		{
-			if(a._value is string || b._value is string)
+			if (a._value is string || b._value is string)
 			{
-				if(a._value is string valA)
+				if (a._value is string valA)
 				{
 					if (double.TryParse(valA, out double dbl)) return dbl * b;
 				}
@@ -388,7 +388,7 @@ namespace AnyDataType
 
 			if (b._value is decimal decimalVal) return (double)decimalVal / a;
 			if (b._value is float floatVal) return floatVal / a;
-			if (b._value is double doubleVal) return doubleVal /a;
+			if (b._value is double doubleVal) return doubleVal / a;
 			if (b._value is long longVal) return longVal / a;
 			if (b._value is int intVal) return intVal / a;
 			throw new OverflowException();
