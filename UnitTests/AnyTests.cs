@@ -739,11 +739,6 @@ namespace AnyTests
 			}
 		}
 
-		public class AnyDoubleMultilpiccation
-		{
-
-		}
-
 		public class AnyDecimalMultiplication
 		{
 			[Test]
@@ -814,7 +809,7 @@ namespace AnyTests
 			}
 
 			[Test]
-			public void MultiplicatioAnyDecimal()
+			public void MultiplicationAnyDecimal()
 			{
 				Any test = 4m;
 				Any other = 2.5m;
@@ -822,11 +817,116 @@ namespace AnyTests
 			}
 
 			[Test]
-			public void MultiplicatioAnyString()
+			public void MultiplicationAnyString()
 			{
 				Any test = 4m;
 				Any other = "2.5";
 				Assert.AreEqual(10, test * other);
+			}
+
+			[Test]
+			public void MultiplicationString()
+			{
+				Any test = 4m;
+				Assert.AreEqual(10, "2.5" * test);
+			}
+		}
+
+		public class Addition
+		{
+			[Test]
+			public void AdditionInt()
+			{
+				Any test = 4;
+				Assert.AreEqual(9, 5 + test);
+			}
+
+			[Test]
+			public void AdditionDecimal()
+			{
+				Any test = 4;
+				Assert.AreEqual(9.2, 5.2m + test);
+			}
+
+			[Test]
+			public void AdditionAnyString()
+			{
+				Any test = 4;
+				Any str = "5";
+				Assert.AreEqual(9, str + test);
+			}
+
+			[Test]
+			public void AdditionString()
+			{
+				Any test = 4;
+				Assert.AreEqual(9,  "5" + test);
+			}
+		}
+
+		public class Subtraction
+		{
+			[Test]
+			public void SubtractionInt()
+			{
+				Any test = 4;
+				Assert.AreEqual(1, 5 - test);
+			}
+
+			[Test]
+			public void SubtractionDecimal()
+			{
+				Any test = 4;
+				Assert.AreEqual(1.2, 5.2m - test, .00001);
+			}
+
+			[Test]
+			public void SubtractionAnyString()
+			{
+				Any test = 4;
+				Any str = "5";
+				Assert.AreEqual(1, str - test);
+			}
+
+			[Test]
+			public void SubtractionString()
+			{
+				Any test = 4;
+				Assert.AreEqual(1, "5" - test);
+			}
+		}
+
+		public class Division
+		{
+			[Test]
+			public void DivisionInt()
+			{
+				Any test = 16;
+				Assert.AreEqual(4, test / 4);
+			}
+
+			[Test]
+			public void DivisionDecimal()
+			{
+				Any test = 16;
+				Assert.AreEqual(4, test / 4m);
+			}
+
+			[Test]
+			public void DivisionAnyString()
+			{
+				Any test = 16;
+				Any str = "4";
+				Assert.AreEqual(4, test / str);
+			}
+
+			[Test]
+			public void DivisionString()
+			{
+				Any test = 16;
+				Any divisor = "4";
+				Assert.AreEqual(4, test / "4");
+				Assert.AreEqual(4, 16/divisor);
 			}
 		}
 	}

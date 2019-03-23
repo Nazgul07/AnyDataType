@@ -181,6 +181,46 @@ namespace AnyDataType
 			return b * a;
 		}
 
+		public static double operator *(Any a, decimal b)
+		{
+			if (a._value is string valA)
+			{
+				if (double.TryParse(valA, out double dbl)) return dbl * (double)b;
+			}
+
+			if (a._value is decimal decimalVal) return (double)decimalVal * (double)b;
+			if (a._value is float floatVal) return floatVal * (double)b;
+			if (a._value is double doubleVal) return doubleVal * (double)b;
+			if (a._value is long longVal) return longVal * (double)b;
+			if (a._value is int intVal) return intVal * (double)b;
+			throw new OverflowException();
+		}
+
+		public static double operator *(decimal a, Any b)
+		{
+			return b * a;
+		}
+
+		public static double operator *(Any a, long b)
+		{
+			if (a._value is string valA)
+			{
+				if (double.TryParse(valA, out double dbl)) return dbl * b;
+			}
+
+			if (a._value is decimal decimalVal) return (double)decimalVal * b;
+			if (a._value is float floatVal) return floatVal * b;
+			if (a._value is double doubleVal) return doubleVal * b;
+			if (a._value is long longVal) return longVal * b;
+			if (a._value is int intVal) return intVal * b;
+			throw new OverflowException();
+		}
+
+		public static double operator *(long a, Any b)
+		{
+			return b * a;
+		}
+
 		public static Any operator *(Any a, Any b)
 		{
 			if(a._value is string || b._value is string)
@@ -221,7 +261,340 @@ namespace AnyDataType
 			}
 			throw new OverflowException();
 		}
-		
+
+		public static double operator +(Any a, double b)
+		{
+			if (a._value is string valA)
+			{
+				if (double.TryParse(valA, out double dbl)) return dbl + b;
+			}
+
+			if (a._value is decimal decimalVal) return (double)decimalVal + b;
+			if (a._value is float floatVal) return floatVal + b;
+			if (a._value is double doubleVal) return doubleVal + b;
+			if (a._value is long longVal) return longVal + b;
+			if (a._value is int intVal) return intVal + b;
+			throw new OverflowException();
+		}
+
+		public static double operator +(double a, Any b)
+		{
+			return b + a;
+		}
+
+		public static double operator +(decimal a, Any b)
+		{
+			return b + a;
+		}
+
+		public static double operator +(Any a, decimal b)
+		{
+			if (a._value is string valA)
+			{
+				if (double.TryParse(valA, out double dbl)) return dbl + (double)b;
+			}
+
+			if (a._value is decimal decimalVal) return (double)decimalVal + (double)b;
+			if (a._value is float floatVal) return floatVal + (double)b;
+			if (a._value is double doubleVal) return doubleVal + (double)b;
+			if (a._value is long longVal) return longVal + (double)b;
+			if (a._value is int intVal) return intVal + (double)b;
+			throw new OverflowException();
+		}
+
+		public static double operator +(long a, Any b)
+		{
+			return b + a;
+		}
+
+		public static double operator +(Any a, long b)
+		{
+			if (a._value is string valA)
+			{
+				if (double.TryParse(valA, out double dbl)) return dbl + b;
+			}
+
+			if (a._value is decimal decimalVal) return (double)decimalVal + b;
+			if (a._value is float floatVal) return floatVal + (double)b;
+			if (a._value is double doubleVal) return doubleVal + b;
+			if (a._value is long longVal) return longVal + (double)b;
+			if (a._value is int intVal) return intVal + (double)b;
+			throw new OverflowException();
+		}
+
+		public static Any operator +(Any a, Any b)
+		{
+			if (a._value is string || b._value is string)
+			{
+				if (a._value is string valA)
+				{
+					if (double.TryParse(valA, out double dbl)) return dbl + b;
+				}
+				if (b._value is string valB)
+				{
+					if (double.TryParse(valB, out double dbl)) return dbl + a;
+				}
+			}
+			if (a._value is decimal || b._value is decimal)
+			{
+				if (a._value is decimal valA) return valA + b;
+				if (b._value is decimal valB) return a + valB;
+			}
+			if (a._value is double doubleVal || b._value is double)
+			{
+				if (a._value is double valA) return valA + b;
+				if (b._value is double valB) return a + valB;
+			}
+			if (a._value is float floatVal || b._value is float)
+			{
+				if (a._value is float valA) return valA + b;
+				if (b._value is float valB) return a + valB;
+			}
+			if (a._value is long longVal || b._value is long)
+			{
+				if (a._value is long valA) return valA + b;
+				if (b._value is long valB) return a + valB;
+			}
+			if (a._value is int intVal || b._value is int)
+			{
+				if (a._value is int valA) return valA + b;
+				if (b._value is int valB) return a + valB;
+			}
+			throw new OverflowException();
+		}
+
+		public static double operator /(Any a, double b)
+		{
+			if (a._value is string valA)
+			{
+				if (double.TryParse(valA, out double dbl)) return dbl / b;
+			}
+
+			if (a._value is decimal decimalVal) return (double)decimalVal / b;
+			if (a._value is float floatVal) return floatVal / b;
+			if (a._value is double doubleVal) return doubleVal / b;
+			if (a._value is long longVal) return longVal / b;
+			if (a._value is int intVal) return intVal / b;
+			throw new OverflowException();
+		}
+
+		public static double operator /(double a, Any b)
+		{
+			if (b._value is string valB)
+			{
+				if (double.TryParse(valB, out double dbl)) return a / dbl;
+			}
+
+			if (b._value is decimal decimalVal) return (double)decimalVal / a;
+			if (b._value is float floatVal) return floatVal / a;
+			if (b._value is double doubleVal) return doubleVal /a;
+			if (b._value is long longVal) return longVal / a;
+			if (b._value is int intVal) return intVal / a;
+			throw new OverflowException();
+		}
+
+		public static double operator /(Any a, long b)
+		{
+			if (a._value is string valA)
+			{
+				if (double.TryParse(valA, out double dbl)) return dbl / b;
+			}
+
+			if (a._value is decimal decimalVal) return (double)decimalVal / b;
+			if (a._value is float floatVal) return floatVal / b;
+			if (a._value is double doubleVal) return doubleVal / b;
+			if (a._value is long longVal) return longVal / b;
+			if (a._value is int intVal) return intVal / b;
+			throw new OverflowException();
+		}
+
+		public static double operator /(long a, Any b)
+		{
+			if (b._value is string valB)
+			{
+				if (double.TryParse(valB, out double dbl)) return a / dbl;
+			}
+
+			if (b._value is decimal decimalVal) return (double)decimalVal / a;
+			if (b._value is float floatVal) return floatVal / a;
+			if (b._value is double doubleVal) return doubleVal / a;
+			if (b._value is long longVal) return longVal / a;
+			if (b._value is int intVal) return intVal / a;
+			throw new OverflowException();
+		}
+
+		public static double operator /(Any a, decimal b)
+		{
+			if (a._value is string valA)
+			{
+				if (double.TryParse(valA, out double dbl)) return dbl / (double)b;
+			}
+
+			if (a._value is decimal decimalVal) return (double)decimalVal / (double)b;
+			if (a._value is float floatVal) return floatVal / (double)b;
+			if (a._value is double doubleVal) return doubleVal / (double)b;
+			if (a._value is long longVal) return longVal / (double)b;
+			if (a._value is int intVal) return intVal / (double)b;
+			throw new OverflowException();
+		}
+
+		public static double operator /(decimal a, Any b)
+		{
+			if (b._value is string valB)
+			{
+				if (double.TryParse(valB, out double dbl)) return (double)a / dbl;
+			}
+
+			if (b._value is decimal decimalVal) return (double)decimalVal / (double)a;
+			if (b._value is float floatVal) return floatVal / (double)a;
+			if (b._value is double doubleVal) return doubleVal / (double)a;
+			if (b._value is long longVal) return longVal / (double)a;
+			if (b._value is int intVal) return intVal / (double)a;
+			throw new OverflowException();
+		}
+
+		public static Any operator /(Any a, Any b)
+		{
+			if (a._value is string || b._value is string)
+			{
+				if (a._value is string valA)
+				{
+					if (double.TryParse(valA, out double dbl)) return dbl / b;
+				}
+				if (b._value is string valB)
+				{
+					if (double.TryParse(valB, out double dbl)) return dbl / a;
+				}
+			}
+			if (a._value is decimal || b._value is decimal)
+			{
+				if (a._value is decimal valA) return valA / b;
+				if (b._value is decimal valB) return a / valB;
+			}
+			if (a._value is double doubleVal || b._value is double)
+			{
+				if (a._value is double valA) return valA / b;
+				if (b._value is double valB) return a / valB;
+			}
+			if (a._value is float floatVal || b._value is float)
+			{
+				if (a._value is float valA) return valA / b;
+				if (b._value is float valB) return a / valB;
+			}
+			if (a._value is long longVal || b._value is long)
+			{
+				if (a._value is long valA) return valA / b;
+				if (b._value is long valB) return a / valB;
+			}
+			if (a._value is int intVal || b._value is int)
+			{
+				if (a._value is int valA) return valA / b;
+				if (b._value is int valB) return a / valB;
+			}
+			throw new OverflowException();
+		}
+
+		public static double operator -(Any a, double b)
+		{
+			if (a._value is string valA)
+			{
+				if (double.TryParse(valA, out double dbl)) return dbl - b;
+			}
+
+			if (a._value is decimal decimalVal) return (double)decimalVal - b;
+			if (a._value is float floatVal) return floatVal - b;
+			if (a._value is double doubleVal) return doubleVal - b;
+			if (a._value is long longVal) return longVal - b;
+			if (a._value is int intVal) return intVal - b;
+			throw new OverflowException();
+		}
+
+		public static double operator -(double a, Any b)
+		{
+			return (b - a) * -1;
+		}
+
+		public static double operator -(Any a, decimal b)
+		{
+			if (a._value is string valA)
+			{
+				if (double.TryParse(valA, out double dbl)) return dbl - (double)b;
+			}
+
+			if (a._value is decimal decimalVal) return (double)decimalVal - (double)b;
+			if (a._value is float floatVal) return floatVal - (double)b;
+			if (a._value is double doubleVal) return doubleVal - (double)b;
+			if (a._value is long longVal) return longVal - (double)b;
+			if (a._value is int intVal) return intVal - (double)b;
+			throw new OverflowException();
+		}
+
+		public static double operator -(decimal a, Any b)
+		{
+			return (b - a) * -1;
+		}
+
+		public static double operator -(Any a, long b)
+		{
+			if (a._value is string valA)
+			{
+				if (double.TryParse(valA, out double dbl)) return dbl - b;
+			}
+
+			if (a._value is decimal decimalVal) return (double)decimalVal - b;
+			if (a._value is float floatVal) return floatVal - (double)b;
+			if (a._value is double doubleVal) return doubleVal - b;
+			if (a._value is long longVal) return longVal - (double)b;
+			if (a._value is int intVal) return intVal - (double)b;
+			throw new OverflowException();
+		}
+
+		public static double operator -(long a, Any b)
+		{
+			return (b - a) * -1;
+		}
+
+		public static Any operator -(Any a, Any b)
+		{
+			if (a._value is string || b._value is string)
+			{
+				if (a._value is string valA)
+				{
+					if (double.TryParse(valA, out double dbl)) return dbl - b;
+				}
+				if (b._value is string valB)
+				{
+					if (double.TryParse(valB, out double dbl)) return dbl - a;
+				}
+			}
+			if (a._value is decimal || b._value is decimal)
+			{
+				if (a._value is decimal valA) return valA - b;
+				if (b._value is decimal valB) return a - valB;
+			}
+			if (a._value is double doubleVal || b._value is double)
+			{
+				if (a._value is double valA) return valA - b;
+				if (b._value is double valB) return a - valB;
+			}
+			if (a._value is float floatVal || b._value is float)
+			{
+				if (a._value is float valA) return valA - b;
+				if (b._value is float valB) return a - valB;
+			}
+			if (a._value is long longVal || b._value is long)
+			{
+				if (a._value is long valA) return valA - b;
+				if (b._value is long valB) return a - valB;
+			}
+			if (a._value is int intVal || b._value is int)
+			{
+				if (a._value is int valA) return valA - b;
+				if (b._value is int valB) return a - valB;
+			}
+			throw new OverflowException();
+		}
+
 		#endregion
 		public override string ToString()
 		{
