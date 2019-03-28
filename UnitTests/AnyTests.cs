@@ -731,11 +731,20 @@ namespace AnyTests
 			}
 
 			[Test]
-			public void MultiplicatioAnyString()
+			public void MultiplicationAnyString()
 			{
 				Any test = 4f;
 				Any other = "2.5";
 				Assert.AreEqual(10, test * other);
+			}
+
+
+			[Test]
+			public void MultiplicationOverflow()
+			{
+				Any test = "!!";
+				Any other = "2.5";
+				Assert.Throws<OverflowException>(() => { var val = test * other; });
 			}
 		}
 
@@ -891,6 +900,14 @@ namespace AnyTests
 				Any other = "other";
 				Assert.AreEqual("testother", test + other);
 			}
+
+			[Test]
+			public void AdditionOverflow()
+			{
+				Any test = "!!";
+				Any other = "2.5";
+				Assert.Throws<OverflowException>(() => { var val = test + other; });
+			}
 		}
 
 		public class Subtraction
@@ -922,6 +939,14 @@ namespace AnyTests
 			{
 				Any test = 4;
 				Assert.AreEqual(1, "5" - test);
+			}
+
+			[Test]
+			public void SubtractionOverflow()
+			{
+				Any test = "!!";
+				Any other = "2.5";
+				Assert.Throws<OverflowException>(() => { var val = test - other; });
 			}
 		}
 
@@ -956,6 +981,14 @@ namespace AnyTests
 				Any divisor = "4";
 				Assert.AreEqual(4, test / "4");
 				Assert.AreEqual(4, 16 / divisor);
+			}
+
+			[Test]
+			public void DivisionOverflow()
+			{
+				Any test = "!!";
+				Any other = "2.5";
+				Assert.Throws<OverflowException>(() => { var val = test / other; });
 			}
 		}
 
@@ -992,6 +1025,14 @@ namespace AnyTests
 				Any test = 9;
 				int other = 3;
 				Assert.AreEqual(0, test % other);
+			}
+
+			[Test]
+			public void ModulusOverflow()
+			{
+				Any test = "5m";
+				Any other = "2.5";
+				Assert.Throws<OverflowException>(() => { var val = test % other; });
 			}
 		}
 	}

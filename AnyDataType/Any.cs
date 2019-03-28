@@ -184,7 +184,7 @@ namespace AnyDataType
 			if (a._value is double doubleVal) return doubleVal * b;
 			if (a._value is long longVal) return longVal * b;
 			if (a._value is int intVal) return intVal * b;
-			throw new OverflowException();
+			throw new OverflowException($"Attempted to multiply value '{a}' of Type {a._value.GetType()} by value '{b}' of Type {b.GetType()}.");
 		}
 
 		public static double operator *(double a, Any b)
@@ -204,7 +204,7 @@ namespace AnyDataType
 			if (a._value is double doubleVal) return doubleVal * (double)b;
 			if (a._value is long longVal) return longVal * (double)b;
 			if (a._value is int intVal) return intVal * (double)b;
-			throw new OverflowException();
+			throw new OverflowException($"Attempted to multiply value '{a}' of Type {a._value.GetType()} by value '{b}' of Type {b.GetType()}.");
 		}
 
 		public static double operator *(decimal a, Any b)
@@ -224,7 +224,7 @@ namespace AnyDataType
 			if (a._value is double doubleVal) return doubleVal * b;
 			if (a._value is long longVal) return longVal * b;
 			if (a._value is int intVal) return intVal * b;
-			throw new OverflowException();
+			throw new OverflowException($"Attempted to multiply value '{a}' of Type {a._value.GetType()} by value '{b}' of Type {b.GetType()}.");
 		}
 
 		public static double operator *(long a, Any b)
@@ -266,7 +266,7 @@ namespace AnyDataType
 				if (a._value is int valA) return valA * b;
 				if (b._value is int valB) return a * valB;
 			}
-			throw new OverflowException();
+			throw new OverflowException($"Attempted to multiply value '{a}' of Type {a._value.GetType()} by value '{b}' of Type {b._value.GetType()}.");
 		}
 
 		public static double operator +(Any a, double b)
@@ -281,7 +281,7 @@ namespace AnyDataType
 			if (a._value is double doubleVal) return doubleVal + b;
 			if (a._value is long longVal) return longVal + b;
 			if (a._value is int intVal) return intVal + b;
-			throw new OverflowException();
+			throw new OverflowException($"Attempted to sum value '{a}' of Type {a._value.GetType()} with value '{b}' of Type {b.GetType()}.");
 		}
 
 		public static double operator +(double a, Any b)
@@ -306,7 +306,7 @@ namespace AnyDataType
 			if (a._value is double doubleVal) return doubleVal + (double)b;
 			if (a._value is long longVal) return longVal + (double)b;
 			if (a._value is int intVal) return intVal + (double)b;
-			throw new OverflowException();
+			throw new OverflowException($"Attempted to sum value '{a}' of Type {a._value.GetType()} with value '{b}' of Type {b.GetType()}.");
 		}
 
 		public static double operator +(long a, Any b)
@@ -326,7 +326,7 @@ namespace AnyDataType
 			if (a._value is double doubleVal) return doubleVal + b;
 			if (a._value is long longVal) return longVal + (double)b;
 			if (a._value is int intVal) return intVal + (double)b;
-			throw new OverflowException();
+			throw new OverflowException($"Attempted to sum value '{a}' of Type {a._value.GetType()} with value '{b}' of Type {b.GetType()}.");
 		}
 
 		public static Any operator +(Any a, Any b)
@@ -368,7 +368,7 @@ namespace AnyDataType
 				if (a._value is int valA) return valA + b;
 				if (b._value is int valB) return a + valB;
 			}
-			throw new OverflowException();
+			throw new OverflowException($"Attempted to sum value '{a}' of Type {a._value.GetType()} with value '{b}' of Type {b._value.GetType()}.");
 		}
 
 		public static double operator /(Any a, double b)
@@ -383,7 +383,7 @@ namespace AnyDataType
 			if (a._value is double doubleVal) return doubleVal / b;
 			if (a._value is long longVal) return longVal / b;
 			if (a._value is int intVal) return intVal / b;
-			throw new OverflowException();
+			throw new OverflowException($"Attempted to divide value '{a}' of Type {a._value.GetType()} by value '{b}' of Type {b.GetType()}.");
 		}
 
 		public static double operator /(double a, Any b)
@@ -398,7 +398,7 @@ namespace AnyDataType
 			if (b._value is double doubleVal) return doubleVal / a;
 			if (b._value is long longVal) return longVal / a;
 			if (b._value is int intVal) return intVal / a;
-			throw new OverflowException();
+			throw new OverflowException($"Attempted to divide value '{a}' of Type {a.GetType()} by value '{b}' of Type {b._value.GetType()}.");
 		}
 
 		public static double operator /(Any a, long b)
@@ -413,7 +413,7 @@ namespace AnyDataType
 			if (a._value is double doubleVal) return doubleVal / b;
 			if (a._value is long longVal) return longVal / b;
 			if (a._value is int intVal) return intVal / b;
-			throw new OverflowException();
+			throw new OverflowException($"Attempted to divide value '{a}' of Type {a._value.GetType()} by value '{b}' of Type {b.GetType()}.");
 		}
 
 		public static double operator /(long a, Any b)
@@ -428,7 +428,7 @@ namespace AnyDataType
 			if (b._value is double doubleVal) return doubleVal / a;
 			if (b._value is long longVal) return longVal / a;
 			if (b._value is int intVal) return intVal / a;
-			throw new OverflowException();
+			throw new OverflowException($"Attempted to divide value '{a}' of Type {a.GetType()} by value '{b}' of Type {b._value.GetType()}.");
 		}
 
 		public static double operator /(Any a, decimal b)
@@ -443,7 +443,7 @@ namespace AnyDataType
 			if (a._value is double doubleVal) return doubleVal / (double)b;
 			if (a._value is long longVal) return longVal / (double)b;
 			if (a._value is int intVal) return intVal / (double)b;
-			throw new OverflowException();
+			throw new OverflowException($"Attempted to divide value '{a}' of Type {a._value.GetType()} by value '{b}' of Type {b.GetType()}.");
 		}
 
 		public static double operator /(decimal a, Any b)
@@ -458,7 +458,7 @@ namespace AnyDataType
 			if (b._value is double doubleVal) return doubleVal / (double)a;
 			if (b._value is long longVal) return longVal / (double)a;
 			if (b._value is int intVal) return intVal / (double)a;
-			throw new OverflowException();
+			throw new OverflowException($"Attempted to divide value '{a}' of Type {a.GetType()} by value '{b}' of Type {b._value.GetType()}.");
 		}
 
 		public static Any operator /(Any a, Any b)
@@ -499,7 +499,7 @@ namespace AnyDataType
 				if (a._value is int valA) return valA / b;
 				if (b._value is int valB) return a / valB;
 			}
-			throw new OverflowException();
+			throw new OverflowException($"Attempted to divide value '{a}' of Type {a._value.GetType()} by value '{b}' of Type {b._value.GetType()}.");
 		}
 
 		public static double operator -(Any a, double b)
@@ -514,7 +514,7 @@ namespace AnyDataType
 			if (a._value is double doubleVal) return doubleVal - b;
 			if (a._value is long longVal) return longVal - b;
 			if (a._value is int intVal) return intVal - b;
-			throw new OverflowException();
+			throw new OverflowException($"Attempted to subtract value '{b}' of Type {b.GetType()} from value '{a}' of Type {a._value.GetType()}.");
 		}
 
 		public static double operator -(double a, Any b)
@@ -534,7 +534,7 @@ namespace AnyDataType
 			if (a._value is double doubleVal) return doubleVal - (double)b;
 			if (a._value is long longVal) return longVal - (double)b;
 			if (a._value is int intVal) return intVal - (double)b;
-			throw new OverflowException();
+			throw new OverflowException($"Attempted to subtract value '{b}' of Type {b.GetType()} from value '{a}' of Type {a._value.GetType()}.");
 		}
 
 		public static double operator -(decimal a, Any b)
@@ -554,7 +554,7 @@ namespace AnyDataType
 			if (a._value is double doubleVal) return doubleVal - b;
 			if (a._value is long longVal) return longVal - (double)b;
 			if (a._value is int intVal) return intVal - (double)b;
-			throw new OverflowException();
+			throw new OverflowException($"Attempted to subtract value '{b}' of Type {b.GetType()} from value '{a}' of Type {a._value.GetType()}.");
 		}
 
 		public static double operator -(long a, Any b)
@@ -600,43 +600,196 @@ namespace AnyDataType
 				if (a._value is int valA) return valA - b;
 				if (b._value is int valB) return a - valB;
 			}
-			throw new OverflowException();
+			throw new OverflowException($"Attempted to subtract value '{b}' of Type {b._value.GetType()} from value '{a}' of Type {a._value.GetType()}.");
 		}
 
 		public static double operator %(double a, Any b)
 		{
-			int div = (int)Math.Max(1, Math.Floor(a / b));
-			return a - div * b;
+			double dblA = a;
+			double dblB = 0.0;
+			switch (b._value)
+			{
+				case string valB when double.TryParse(valB, out double dbl):
+					dblB = dbl;
+					break;
+				case decimal decimalVal:
+					dblB = (double)decimalVal;
+					break;
+				case float floatVal:
+					dblB = floatVal;
+					break;
+				case double doubleVal:
+					dblB = doubleVal;
+					break;
+				case long longVal:
+					dblB = longVal;
+					break;
+				case int intVal:
+					dblB = intVal;
+					break;
+				default:
+					throw new OverflowException($"Attempted to mod value '{a}' of Type {a.GetType()} by value '{b}' of Type {b._value.GetType()}.");
+			}
+
+			int div = (int)Math.Max(1, Math.Floor(dblA / dblB));
+			return dblA - div * dblB;
 		}
 
 		public static double operator %(Any a, double b)
 		{
-			int div = (int)Math.Max(1, Math.Floor(a / b));
-			return a - div * b;
+			double dblA = 0.0;
+			switch (a._value)
+			{
+				case string valA when double.TryParse(valA, out double dbl):
+					dblA = dbl;
+					break;
+				case decimal decimalVal:
+					dblA = (double)decimalVal;
+					break;
+				case float floatVal:
+					dblA = floatVal;
+					break;
+				case double doubleVal:
+					dblA = doubleVal;
+					break;
+				case long longVal:
+					dblA = longVal;
+					break;
+				case int intVal:
+					dblA = intVal;
+					break;
+				default:
+					throw new OverflowException($"Attempted to mod value '{a}' of Type {a._value.GetType()} by value '{b}' of Type {b.GetType()}.");
+			}
+
+			int div = (int)Math.Max(1, Math.Floor(dblA / b));
+			return dblA - div * b;
 		}
 
 		public static decimal operator %(decimal a, Any b)
 		{
-			int div = (int)Math.Max(1, Math.Floor(a / b));
-			return a - div * (decimal)(b * 1m);
+			decimal decA = a;
+			decimal decB = 0.0m;
+			switch (b._value)
+			{
+				case string valB when double.TryParse(valB, out double dbl):
+					decB = (decimal)dbl;
+					break;
+				case decimal decimalVal:
+					decB = decimalVal;
+					break;
+				case float floatVal:
+					decB = (decimal)floatVal;
+					break;
+				case double doubleVal:
+					decB = (decimal)doubleVal;
+					break;
+				case long longVal:
+					decB = longVal;
+					break;
+				case int intVal:
+					decB = intVal;
+					break;
+				default:
+					throw new OverflowException($"Attempted to mod value '{a}' of Type {a.GetType()} by value '{b}' of Type {b._value.GetType()}.");
+			}
+
+			int div = (int)Math.Max(1, Math.Floor(decA / decB));
+			return decA - div * decB;
 		}
 
 		public static decimal operator %(Any a, decimal b)
 		{
-			int div = (int)Math.Max(1, Math.Floor(a / b));
-			return (decimal)(a * 1m) - div * b;
+			decimal decA = 0.0m;
+			switch (a._value)
+			{
+				case string valA when double.TryParse(valA, out double dbl):
+					decA = (decimal)dbl;
+					break;
+				case decimal decimalVal:
+					decA = decimalVal;
+					break;
+				case float floatVal:
+					decA = (decimal)floatVal;
+					break;
+				case double doubleVal:
+					decA = (decimal)doubleVal;
+					break;
+				case long longVal:
+					decA = longVal;
+					break;
+				case int intVal:
+					decA = intVal;
+					break;
+				default:
+					throw new OverflowException($"Attempted to mod value '{a}' of Type {a._value.GetType()} by value '{b}' of Type {b.GetType()}.");
+			}
+
+			int div = (int)Math.Max(1, Math.Floor(decA / b));
+			return decA - div * b;
 		}
 
 		public static long operator %(long a, Any b)
 		{
-			int div = (int)Math.Max(1, Math.Floor(a / b));
-			return a - div * (long)(b * 1m);
+			long decA = a;
+			long decB = 0L;
+			switch (b._value)
+			{
+				case string valB when double.TryParse(valB, out double dbl):
+					decB = (long)dbl;
+					break;
+				case decimal decimalVal:
+					decB = (long)decimalVal;
+					break;
+				case float floatVal:
+					decB = (long)floatVal;
+					break;
+				case double doubleVal:
+					decB = (long)doubleVal;
+					break;
+				case long longVal:
+					decB = longVal;
+					break;
+				case int intVal:
+					decB = intVal;
+					break;
+				default:
+					throw new OverflowException($"Attempted to mod value '{a}' of Type {a.GetType()} by value '{b}' of Type {b._value.GetType()}.");
+			}
+
+			int div = (int)Math.Max(1, Math.Floor((double)decA / decB));
+			return decA - div * decB;
 		}
 
 		public static long operator %(Any a, long b)
 		{
-			int div = (int)Math.Max(1, Math.Floor(a / b));
-			return (long)(a * 1m) - div * b;
+			long dblA = 0;
+			switch (a._value)
+			{
+				case string valA when double.TryParse(valA, out double dbl):
+					dblA = (long)dbl;
+					break;
+				case decimal decimalVal:
+					dblA = (long)decimalVal;
+					break;
+				case float floatVal:
+					dblA = (long)floatVal;
+					break;
+				case double doubleVal:
+					dblA = (long)doubleVal;
+					break;
+				case long longVal:
+					dblA = longVal;
+					break;
+				case int intVal:
+					dblA = intVal;
+					break;
+				default:
+					throw new OverflowException($"Attempted to mod value '{a}' of Type {a._value.GetType()} by value '{b}' of Type {b.GetType()}.");
+			}
+
+			int div = (int)Math.Max(1, Math.Floor((decimal)dblA / b));
+			return dblA - div * b;
 		}
 
 		public static Any operator %(Any a, Any b)
@@ -671,7 +824,7 @@ namespace AnyDataType
 				if (a._value is int valA) return valA % b;
 				if (b._value is int valB) return a % valB;
 			}
-			throw new OverflowException();
+			throw new OverflowException($"Attempted to mod value '{a}' of Type {a._value.GetType()} by value '{b}' of Type {b._value.GetType()}.");
 		}
 
 		#endregion
