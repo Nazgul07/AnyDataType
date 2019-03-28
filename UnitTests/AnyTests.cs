@@ -52,6 +52,67 @@ namespace AnyTests
 			}
 		}
 
+		public class AnyBool
+		{
+			[Test]
+			public void AnyBoolEqualsString()
+			{
+				Any custom = true;
+				Assert.AreEqual("true", custom);
+				Assert.IsTrue("true" == custom);
+			}
+
+			[Test]
+			public void AnyStringEqualsBool()
+			{
+				Any custom = "1";
+				Assert.AreEqual(true, custom);
+				Assert.IsTrue(true == custom);
+			}
+
+			[Test]
+			public void AnyBoolNotEqualsString()
+			{
+				Any custom = true;
+				Assert.AreNotEqual("test", custom);
+				Assert.IsFalse("test" == custom);
+			}
+
+			[Test]
+			public void AnyBoolEqualsInt()
+			{
+				Any custom = true;
+				Assert.AreEqual(1, custom);
+				Assert.IsTrue(1 == custom);
+			}
+
+			[Test]
+			public void AnyBoolNotEqualsInt()
+			{
+				Any custom = true;
+				Assert.AreNotEqual(5, custom);
+				Assert.IsFalse(5 == custom);
+			}
+
+			[Test]
+			public void AnyBoolEqualsAnyString()
+			{
+				Any test = true;
+				Any other = "true";
+				Assert.AreEqual(test, other);
+				Assert.IsTrue(test == other);
+			}
+
+			[Test]
+			public void AnyBoolNotEqualsAnyString()
+			{
+				Any test = true;
+				Any other = "false";
+				Assert.AreNotEqual(test, other);
+				Assert.IsFalse(test == other);
+			}
+		}
+
 		public class AnyInt
 		{
 			[Test]

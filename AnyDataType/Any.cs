@@ -1,15 +1,21 @@
 ﻿using System;
+using System.Linq;
 using System.Text;
 
 namespace AnyDataType
 {
-	public struct Any : IEquatable<Any>, IEquatable<string>, IEquatable<int>, IEquatable<long>, IEquatable<float>, IEquatable<double>, IEquatable<decimal>, IEquatable<DateTime>
+	public struct Any : IEquatable<Any>, IEquatable<string>, IEquatable<bool>, IEquatable<int>, IEquatable<long>, IEquatable<float>, IEquatable<double>, IEquatable<decimal>, IEquatable<DateTime>
 	{
 		private object _value;
 
 		#region Implicit  Assignments
 
 		public static implicit operator Any(string value)
+		{
+			return new Any { _value = value };
+		}
+
+		public static implicit operator Any(bool value)
 		{
 			return new Any { _value = value };
 		}
@@ -63,6 +69,11 @@ namespace AnyDataType
 			return Equals((object)other);
 		}
 
+		public bool Equals(bool other)
+		{
+			return Equals((object)other);
+		}
+
 		public bool Equals(int other)
 		{
 			return Equals((object)other);
@@ -107,6 +118,16 @@ namespace AnyDataType
 					|| value is decimal;
 		}
 
+		private bool TryParseBool(string input, out bool value)
+		{
+			if (bool.TryParse(input, out value)) return true;
+			if (new[] { "true", "1" }.Contains(input, StringComparer.InvariantCultureIgnoreCase)) {
+				value = true;
+				return true;
+			}
+			return false;
+		}
+
 		private bool AreEqual(object left, object right)
 		{
 			if (IsNumber(left) && IsNumber(right))
@@ -117,6 +138,16 @@ namespace AnyDataType
 			{
 				case string strLeft when right is string strRight:
 					return strLeft == strRight;
+				case string strLeft when right is bool boolRight:
+					{
+						if (TryParseBool(strLeft, out bool boolLeft)) return boolLeft == boolRight;
+					}
+					break;
+				case bool boolLeft when IsNumber(right):
+					{
+						if (TryParseBool(right.ToString(), out bool boolRight)) return boolLeft == boolRight;
+					}
+					break;
 				case string strLeft when right is int intRight:
 					{
 						if (int.TryParse(strLeft, out int intLeft)) return intLeft == intRight;
