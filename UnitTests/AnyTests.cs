@@ -739,6 +739,25 @@ namespace AnyTests
 			}
 		}
 
+		public class AnyStringMultiplication
+		{
+			[Test]
+			public void MultiplicationInt()
+			{
+				Any test = "test";
+				Any other = 3;
+				Assert.AreEqual("testtesttest", test * other);
+			}
+
+			[Test]
+			public void MultiplicationDouble()
+			{
+				Any test = "test";
+				Any other = 3.5;
+				Assert.Throws<OverflowException>(() => { var val = test* other; });
+			}
+		}
+
 		public class AnyDecimalMultiplication
 		{
 			[Test]
@@ -937,6 +956,42 @@ namespace AnyTests
 				Any divisor = "4";
 				Assert.AreEqual(4, test / "4");
 				Assert.AreEqual(4, 16 / divisor);
+			}
+		}
+
+		public class Modulus
+		{
+			[Test]
+			public void ModulusAnyInt()
+			{
+				Any test = 5;
+				Any other = 4;
+				Assert.AreEqual(1, test % other);
+			}
+
+			[Test]
+			public void ModulusAnyDouble()
+			{
+				Any test = 5;
+				Any other = 3.00;
+				Assert.AreEqual(2, test % other);
+			}
+
+
+			[Test]
+			public void ModulusAnyDecimal()
+			{
+				Any test = 5;
+				Any other = 3.00m;
+				Assert.AreEqual(2, test % other);
+			}
+
+			[Test]
+			public void ModulusInt()
+			{
+				Any test = 9;
+				int other = 3;
+				Assert.AreEqual(0, test % other);
 			}
 		}
 	}

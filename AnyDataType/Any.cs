@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace AnyDataType
 {
@@ -161,6 +162,16 @@ namespace AnyDataType
 
 		#region Math
 
+		public static string operator *(Any str, int duplicateFactor)
+		{
+			StringBuilder sb = new StringBuilder();
+			for (int i = 0; i < duplicateFactor; i++)
+			{
+				sb.Append(str);
+			}
+			return sb.ToString();
+		}
+
 		public static double operator *(Any a, double b)
 		{
 			if (a._value is string valA)
@@ -225,14 +236,9 @@ namespace AnyDataType
 		{
 			if (a._value is string || b._value is string)
 			{
-				if (a._value is string valA)
-				{
-					if (double.TryParse(valA, out double dbl)) return dbl * b;
-				}
-				if (b._value is string valB)
-				{
-					if (double.TryParse(valB, out double dbl)) return dbl * a;
-				}
+				if (a._value is string valA && double.TryParse(valA, out double dblA)) return dblA * b;
+				if (b._value is string valB && double.TryParse(valB, out double dblB)) return dblB * a;
+				if (a._value is string && IsNumber(b._value) && b % 1.0 == 0) return a * (int)(b._value);
 			}
 			if (a._value is decimal || b._value is decimal)
 			{
@@ -592,6 +598,77 @@ namespace AnyDataType
 			{
 				if (a._value is int valA) return valA - b;
 				if (b._value is int valB) return a - valB;
+			}
+			throw new OverflowException();
+		}
+
+		public static double operator %(double a, Any b)
+		{
+			int div = (int)Math.Max(1, Math.Floor(a / b));
+			return a - div * b;
+		}
+
+		public static double operator %(Any a, double b)
+		{
+			int div = (int)Math.Max(1, Math.Floor(a / b));
+			return a - div * b;
+		}
+
+		public static decimal operator %(decimal a, Any b)
+		{
+			int div = (int)Math.Max(1, Math.Floor(a / b));
+			return a - div * (decimal)(b * 1m);
+		}
+
+		public static decimal operator %(Any a, decimal b)
+		{
+			int div = (int)Math.Max(1, Math.Floor(a / b));
+			return (decimal)(a * 1m) - div * b;
+		}
+
+		public static long operator %(long a, Any b)
+		{
+			int div = (int)Math.Max(1, Math.Floor(a / b));
+			return a - div * (long)(b * 1m);
+		}
+
+		public static long operator %(Any a, long b)
+		{
+			int div = (int)Math.Max(1, Math.Floor(a / b));
+			return (long)(a * 1m) - div * b;
+		}
+
+		public static Any operator %(Any a, Any b)
+		{
+			if (a._value is string || b._value is string)
+			{
+				if (a._value is string valA && double.TryParse(valA, out double dblA)) return dblA % b;
+				if (b._value is string valB && double.TryParse(valB, out double dblB)) return dblB % a;
+			}
+			if (a._value is decimal || b._value is decimal)
+			{
+				if (a._value is decimal valA) return valA % b;
+				if (b._value is decimal valB) return a % valB;
+			}
+			if (a._value is double doubleVal || b._value is double)
+			{
+				if (a._value is double valA) return valA % b;
+				if (b._value is double valB) return a % valB;
+			}
+			if (a._value is float floatVal || b._value is float)
+			{
+				if (a._value is float valA) return valA % b;
+				if (b._value is float valB) return a % valB;
+			}
+			if (a._value is long longVal || b._value is long)
+			{
+				if (a._value is long valA) return valA % b;
+				if (b._value is long valB) return a % valB;
+			}
+			if (a._value is int intVal || b._value is int)
+			{
+				if (a._value is int valA) return valA % b;
+				if (b._value is int valB) return a % valB;
 			}
 			throw new OverflowException();
 		}
