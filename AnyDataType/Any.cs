@@ -162,7 +162,7 @@ namespace AnyDataType
 
 		#region Math
 
-		public static string operator *(Any str, int duplicateFactor)
+		public static string DuplicateString(Any str, int duplicateFactor)
 		{
 			StringBuilder sb = new StringBuilder();
 			for (int i = 0; i < duplicateFactor; i++)
@@ -238,7 +238,8 @@ namespace AnyDataType
 			{
 				if (a._value is string valA && double.TryParse(valA, out double dblA)) return dblA * b;
 				if (b._value is string valB && double.TryParse(valB, out double dblB)) return dblB * a;
-				if (a._value is string && IsNumber(b._value) && b % 1.0 == 0) return a * (int)(b._value);
+				if (a._value is string && IsNumber(b._value) && b % 1.0 == 0) return DuplicateString(a, (int)(b._value));
+				if (b._value is string && IsNumber(a._value) && a % 1.0 == 0) return DuplicateString(b, (int)(a._value));
 			}
 			if (a._value is decimal || b._value is decimal)
 			{
