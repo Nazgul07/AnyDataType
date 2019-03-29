@@ -121,7 +121,7 @@ namespace AnyDataType
 		private bool TryParseBool(string input, out bool value)
 		{
 			if (bool.TryParse(input, out value)) return true;
-			if (new[] { "true", "1" }.Contains(input, StringComparer.InvariantCultureIgnoreCase)) {
+			if ("1".Equals(input)) {
 				value = true;
 				return true;
 			}
