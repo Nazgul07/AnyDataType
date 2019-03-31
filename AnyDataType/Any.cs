@@ -111,11 +111,6 @@ namespace AnyDataType
 			return left.Equals(right)  || left < right;
 		}
 
-		public bool Equals(Any other)
-		{
-			return Equals(other._value);
-		}
-
 		private static bool IsNumber(object value)
 		{
 			return value is int
@@ -139,7 +134,7 @@ namespace AnyDataType
 		{
 			if (IsNumber(left) && IsNumber(right))
 			{
-				return ((IConvertible)left).ToDouble(null) == ((IConvertible)right).ToDouble(null);
+				return Convert.ToDouble(left) == Convert.ToDouble(right);
 			}
 			switch (left)
 			{
@@ -189,6 +184,11 @@ namespace AnyDataType
 					break;
 			}
 			return false;
+		}
+
+		public bool Equals(Any other)
+		{
+			return Equals(other._value);
 		}
 
 		public override bool Equals(object right)
