@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Text;
 
 namespace AnyDataType
@@ -8,7 +7,7 @@ namespace AnyDataType
 	{
 		private object _value;
 
-		#region Implicit  Assignments
+		#region Implicit Assignments
 
 		public static implicit operator Any(string value)
 		{
@@ -62,6 +61,54 @@ namespace AnyDataType
 		public static bool operator !=(Any left, Any right)
 		{
 			return !(left._value == right._value);
+		}
+
+		public static bool operator >(Any left, Any right)
+		{
+			if(IsNumber(left._value) && IsNumber(right._value))
+			{
+				return (Convert.ToDouble(left._value) > Convert.ToDouble(right._value));
+			}
+			if(left._value is string strLeft && right._value is string strRight)
+			{
+				return strLeft.CompareTo(strRight) == 1;
+			}
+			if (IsNumber(left._value) && right._value is string && double.TryParse((string)right._value, out double dblRight))
+			{
+				return (Convert.ToDouble(left._value) > dblRight);
+			}
+			if (left._value is string && IsNumber(right._value) && double.TryParse((string)left._value, out double dblLeft))
+			{
+				return (dblLeft > Convert.ToDouble(right._value));
+			}
+			if(left._value is DateTime && right._value is DateTime)
+			{
+				return (DateTime)left._value > (DateTime)right._value;
+			}
+			if(left._value is DateTime && right._value is string && DateTime.TryParse((string)right._value, out DateTime dateRight))
+			{
+				return (DateTime)left._value > dateRight;
+			}
+			if (left._value is string && right._value is DateTime && DateTime.TryParse((string)left._value, out DateTime dateLeft))
+			{
+				return dateLeft > (DateTime)right._value;
+			}
+			return false;
+		}
+
+		public static bool operator <(Any left, Any right)
+		{
+			return !left.Equals(right) && !(left > right);
+		}
+
+		public static bool operator >=(Any left, Any right)
+		{
+			return left.Equals(right) || left > right;
+		}
+
+		public static bool operator <=(Any left, Any right)
+		{
+			return left.Equals(right)  || left < right;
 		}
 
 		public bool Equals(string other)
@@ -118,7 +165,7 @@ namespace AnyDataType
 					|| value is decimal;
 		}
 
-		private bool TryParseBool(string input, out bool value)
+		private static bool TryParseBool(string input, out bool value)
 		{
 			if (bool.TryParse(input, out value)) return true;
 			if ("1".Equals(input)) {
@@ -128,7 +175,7 @@ namespace AnyDataType
 			return false;
 		}
 
-		private bool AreEqual(object left, object right)
+		private static bool AreEqual(object left, object right)
 		{
 			if (IsNumber(left) && IsNumber(right))
 			{

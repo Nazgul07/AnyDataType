@@ -50,6 +50,24 @@ namespace AnyTests
 				Assert.AreNotEqual(test, other);
 				Assert.IsFalse(test == other);
 			}
+
+			[Test]
+			public void AnyStringGreaterThanAnyString()
+			{
+				Any test = "bbb";
+				Any other = "aaa";
+				Assert.IsTrue(test > other);
+				Assert.IsTrue(test >= other);
+			}
+
+			[Test]
+			public void AnyStringLessThanAnyString()
+			{
+				Any test = "aaa";
+				Any other = "bbb";
+				Assert.IsTrue(test < other);
+				Assert.IsTrue(test <= other);
+			}
 		}
 
 		public class AnyBool
@@ -164,8 +182,41 @@ namespace AnyTests
 				Assert.AreNotEqual(test, other);
 				Assert.IsFalse(test == other);
 			}
-		}
 
+			[Test]
+			public void AnyIntGreaterThanAnyString()
+			{
+				Any test = 3;
+				Any other = "2";
+				Assert.IsTrue(test > other);
+			}
+
+			[Test]
+			public void AnyIntGreaterThanEqualAnyString()
+			{
+				Any test = 3;
+				Any other = "3";
+				Assert.IsTrue(test >= other);
+			}
+
+			[Test]
+			public void AnyIntLessThanAnyString()
+			{
+				Any test = 3;
+				Any other = "4";
+				Assert.IsTrue(test < other);
+				Assert.IsTrue("2" < test);
+			}
+
+			[Test]
+			public void AnyIntLessThanAnyInt()
+			{
+				Any test = 3;
+				Any other = 4;
+				Assert.IsTrue(test < other);
+				Assert.IsTrue("2" < test);
+			}
+		}
 
 		public class AnyDouble
 		{
@@ -531,6 +582,34 @@ namespace AnyTests
 				Any other = "rubbish";
 				Assert.AreNotEqual(test, other);
 				Assert.IsFalse(test == other);
+			}
+
+			[Test]
+			public void AnyDateTimeGreaterThanAnyString()
+			{
+				var date = DateTime.Parse("2019/04/11");
+				Any test = date;
+				Any other = "2019/03/11";
+				Assert.IsTrue(test > other);
+			}
+
+			[Test]
+			public void AnyDateTimeGreaterThanEqualAnyString()
+			{
+				var date = DateTime.Parse("2019/04/11");
+				Any test = date;
+				Any other = "2019/04/11";
+				Assert.IsTrue(test >= other);
+			}
+
+			[Test]
+			public void AnyDateTimeLessThanAnyString()
+			{
+				var date = DateTime.Parse("2019/04/11");
+				Any test = date;
+				Any other = "2019/04/11";
+				Assert.IsFalse(test < other);
+				Assert.IsTrue("2019/3/11" < test);
 			}
 		}
 
