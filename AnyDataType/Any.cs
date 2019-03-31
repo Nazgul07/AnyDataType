@@ -871,6 +871,7 @@ namespace AnyDataType
 		{
 			return _value.GetType();
 		}
+
 		public override string ToString()
 		{
 			return _value.ToString();
