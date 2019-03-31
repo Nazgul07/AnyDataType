@@ -3,7 +3,7 @@ using System.Text;
 
 namespace AnyDataType
 {
-	public struct Any : IEquatable<Any>, IEquatable<string>, IEquatable<bool>, IEquatable<int>, IEquatable<long>, IEquatable<float>, IEquatable<double>, IEquatable<decimal>, IEquatable<DateTime>
+	public struct Any : IEquatable<Any>, IEquatable<object>
 	{
 		private object _value;
 
@@ -109,46 +109,6 @@ namespace AnyDataType
 		public static bool operator <=(Any left, Any right)
 		{
 			return left.Equals(right)  || left < right;
-		}
-
-		public bool Equals(string other)
-		{
-			return Equals((object)other);
-		}
-
-		public bool Equals(bool other)
-		{
-			return Equals((object)other);
-		}
-
-		public bool Equals(int other)
-		{
-			return Equals((object)other);
-		}
-
-		public bool Equals(long other)
-		{
-			return Equals((object)other);
-		}
-
-		public bool Equals(float other)
-		{
-			return Equals((object)other);
-		}
-
-		public bool Equals(double other)
-		{
-			return Equals((object)other);
-		}
-
-		public bool Equals(decimal other)
-		{
-			return Equals((object)other);
-		}
-
-		public bool Equals(DateTime other)
-		{
-			return Equals((object)other);
 		}
 
 		public bool Equals(Any other)
