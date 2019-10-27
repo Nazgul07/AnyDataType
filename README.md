@@ -45,11 +45,11 @@ var result = variableA / 5; // 9
 ### String Addition 
 ```C#
 Any variableA = "45"
-var result = variableA + " trees"; // 45 trees
+var result = variableA + " trees"; // "45 trees"
 ```
 
 ### String Multiplication
 ```C#
 Any variableA = "taco"
-var result = variableA * 3; // tacotacotaco
+var result = variableA * 3; // "tacotacotaco"
 ```
