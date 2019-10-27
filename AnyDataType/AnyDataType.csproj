@@ -1,12 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>7.1</LangVersion>
+    <RepositoryUrl>https://github.com/Nazgul07/AnyDataType</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <Description>A datatype for strings, numerics, bool, and DateTime.
+
+"Any" is a datatype capable of storing a number of different datatype values, and perform mathmatical and equality operations against other datatypes including "Any".</Description>
+    <Copyright>Colton Correll</Copyright>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CSharp" Version="4.5.0" />
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
