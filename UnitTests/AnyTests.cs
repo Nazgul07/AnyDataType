@@ -507,7 +507,7 @@ namespace AnyTests
 			[Test]
 			public void AnyDateTimeEqualsDateTime()
 			{
-				var date = DateTime.Parse("2019/04/11");
+				DateTime date = DateTime.Parse("2019/04/11");
 				Any test = date;
 				Assert.AreEqual(date, test);
 				Assert.IsTrue(date == test);
@@ -516,8 +516,8 @@ namespace AnyTests
 			[Test]
 			public void AnyDateTimeNotEqualsDateTime()
 			{
-				var date = DateTime.Parse("2019/04/11");
-				var other = DateTime.Parse("2019/05/11");
+				DateTime date = DateTime.Parse("2019/04/11");
+				DateTime other = DateTime.Parse("2019/05/11");
 				Any test = date;
 				Assert.AreNotEqual(other, test);
 				Assert.IsFalse(other == test);
@@ -526,8 +526,8 @@ namespace AnyTests
 			[Test]
 			public void AnyDateTimeEqualString()
 			{
-				var date = DateTime.Parse("2019/04/11");
-				var other = "2019/04/11";
+				DateTime date = DateTime.Parse("2019/04/11");
+				string other = "2019/04/11";
 				Any test = date;
 				Assert.AreEqual(other, test);
 				Assert.IsTrue(other == test);
@@ -536,8 +536,8 @@ namespace AnyTests
 			[Test]
 			public void AnyDateTimeNotEqualString()
 			{
-				var date = DateTime.Parse("2019/04/11");
-				var other = "2019/05/11";
+				DateTime date = DateTime.Parse("2019/04/11");
+				string other = "2019/05/11";
 				Any test = date;
 				Assert.AreNotEqual(other, test);
 				Assert.IsFalse(other == test);
@@ -546,7 +546,7 @@ namespace AnyTests
 			[Test]
 			public void AnyDateTimeEqualAnyDateTime()
 			{
-				var date = DateTime.Parse("2019/04/11");
+				DateTime date = DateTime.Parse("2019/04/11");
 				Any test = date;
 				Any other = date;
 				Assert.AreEqual(test, other);
@@ -556,8 +556,8 @@ namespace AnyTests
 			[Test]
 			public void AnyDateTimeNotEqualAnyDateTime()
 			{
-				var date = DateTime.Parse("2019/04/11");
-				var otherDate = DateTime.Parse("2019/05/11");
+				DateTime date = DateTime.Parse("2019/04/11");
+				DateTime otherDate = DateTime.Parse("2019/05/11");
 				Any test = date;
 				Any other = otherDate;
 				Assert.AreNotEqual(test, other);
@@ -567,7 +567,7 @@ namespace AnyTests
 			[Test]
 			public void AnyDateTimeEqualAnyString()
 			{
-				var date = DateTime.Parse("2019/04/11");
+				DateTime date = DateTime.Parse("2019/04/11");
 				Any test = date;
 				Any other = "2019/04/11";
 				Assert.AreEqual(test, other);
@@ -577,7 +577,7 @@ namespace AnyTests
 			[Test]
 			public void AnyDateTimeNotEqualAnyString()
 			{
-				var date = DateTime.Parse("2019/04/11");
+				DateTime date = DateTime.Parse("2019/04/11");
 				Any test = date;
 				Any other = "rubbish";
 				Assert.AreNotEqual(test, other);
@@ -587,7 +587,7 @@ namespace AnyTests
 			[Test]
 			public void AnyDateTimeGreaterThanAnyString()
 			{
-				var date = DateTime.Parse("2019/04/11");
+				DateTime date = DateTime.Parse("2019/04/11");
 				Any test = date;
 				Any other = "2019/03/11";
 				Assert.IsTrue(test > other);
@@ -596,7 +596,7 @@ namespace AnyTests
 			[Test]
 			public void AnyDateTimeGreaterThanEqualAnyString()
 			{
-				var date = DateTime.Parse("2019/04/11");
+				DateTime date = DateTime.Parse("2019/04/11");
 				Any test = date;
 				Any other = "2019/04/11";
 				Assert.IsTrue(test >= other);
@@ -605,7 +605,7 @@ namespace AnyTests
 			[Test]
 			public void AnyDateTimeLessThanAnyString()
 			{
-				var date = DateTime.Parse("2019/04/11");
+				DateTime date = DateTime.Parse("2019/04/11");
 				Any test = date;
 				Any other = "2019/04/11";
 				Assert.IsFalse(test < other);
@@ -884,7 +884,7 @@ namespace AnyTests
 			{
 				Any test = "!!";
 				Any other = "2.5";
-				Assert.Throws<OverflowException>(() => { var val = test * other; });
+				Assert.Throws<OverflowException>(() => { Any val = test * other; });
 			}
 		}
 
@@ -903,7 +903,7 @@ namespace AnyTests
 			{
 				Any test = "test";
 				Any other = 3.5;
-				Assert.Throws<OverflowException>(() => { var val = test* other; });
+				Assert.Throws<OverflowException>(() => { Any val = test * other; });
 			}
 		}
 
@@ -1046,7 +1046,7 @@ namespace AnyTests
 			{
 				Any test = "!!";
 				Any other = "2.5";
-				Assert.Throws<OverflowException>(() => { var val = test + other; });
+				Assert.Throws<OverflowException>(() => { Any val = test + other; });
 			}
 		}
 
@@ -1086,7 +1086,7 @@ namespace AnyTests
 			{
 				Any test = "!!";
 				Any other = "2.5";
-				Assert.Throws<OverflowException>(() => { var val = test - other; });
+				Assert.Throws<OverflowException>(() => { Any val = test - other; });
 			}
 		}
 
@@ -1128,7 +1128,7 @@ namespace AnyTests
 			{
 				Any test = "!!";
 				Any other = "2.5";
-				Assert.Throws<OverflowException>(() => { var val = test / other; });
+				Assert.Throws<OverflowException>(() => { Any val = test / other; });
 			}
 		}
 
@@ -1172,7 +1172,7 @@ namespace AnyTests
 			{
 				Any test = "5m";
 				Any other = "2.5";
-				Assert.Throws<OverflowException>(() => { var val = test % other; });
+				Assert.Throws<OverflowException>(() => { Any val = test % other; });
 			}
 		}
 	}
