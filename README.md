@@ -1,7 +1,7 @@
 # AnyDataType
 A datatype for strings, numerics, bool, and DateTime.
 
-Any is a datatype capable of storing a number of different datatype values, and perform mathmatical and equality operations against other datatypes.
+Any is a datatype capable of storing a number of different datatype values, and perform mathmatical and equality operations against other datatypes including *Any*.
 
 # Comparison Example #1:
 ```C#
